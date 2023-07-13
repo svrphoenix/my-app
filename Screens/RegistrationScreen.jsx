@@ -8,6 +8,10 @@ import {
   TouchableOpacity,
   TextInput,
   Pressable,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Platform,
 } from 'react-native';
 
 import backgroundImage from '../assets/img/bg.jpg';
@@ -21,7 +25,7 @@ export const RegistrationScreen = () => {
   };
 
   return (
-    <>
+    <TouchableWithoutFeedback style={styles.container} onPress={Keyboard.dismiss}>
       <ImageBackground source={backgroundImage} style={styles.bgImage}>
         <View style={styles.layout}>
           <View
@@ -35,17 +39,19 @@ export const RegistrationScreen = () => {
           >
             <Image style={styles.avatar} />
           </View>
-          <Text style={{ ...styles.title, marginTop: 92 }}>Реєстрація</Text>
-          <View style={styles.fieldsContainer}>
-            <TextInput style={styles.input} placeholder="Логін" />
-            <TextInput style={styles.input} placeholder="Адреса електронної пошти" />
-            <View style={{ ...styles.fieldsContainer, position: 'relative' }}>
-              <TextInput secureTextEntry style={styles.input} placeholder="Пароль" />
-              <TouchableOpacity style={styles.passwordShow}>
-                <Text style={styles.passwordShowText}>Показати</Text>
-              </TouchableOpacity>
+          <Text style={{ ...styles.title, marginTop: 92 }}>реєстрація</Text>
+          <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+            <View style={styles.fieldsContainer}>
+              <TextInput style={styles.input} placeholder="Логін" />
+              <TextInput style={styles.input} placeholder="Адреса електронної пошти" />
+              <View style={{ ...styles.fieldsContainer, position: 'relative' }}>
+                <TextInput secureTextEntry style={styles.input} placeholder="Пароль" />
+                <TouchableOpacity style={styles.passwordShow}>
+                  <Text style={styles.passwordShowText}>показати</Text>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
+          </KeyboardAvoidingView>
           <Pressable style={styles.btn}>
             <Text style={styles.btnLabel}>зареєструватися</Text>
           </Pressable>
@@ -57,6 +63,6 @@ export const RegistrationScreen = () => {
           </View>
         </View>
       </ImageBackground>
-    </>
+    </TouchableWithoutFeedback>
   );
 };
