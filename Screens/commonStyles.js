@@ -66,6 +66,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
 
+  focusedInput: {
+    color: 'rgba(33, 33, 33, 1)',
+    borderColor: '#FF6C00',
+    backgroundColor: '#FFFFFF',
+  },
   passwordShow: {
     position: 'absolute',
     right: 0,
