@@ -16,8 +16,11 @@ import {
 import { Dimensions } from 'react-native';
 import backgroundImage from '../assets/img/bg.jpg';
 import styles from './commonStyles';
+import inputs from './constants';
 
-export const LoginScreen = () => {
+const { EMAIL, PASSWORD } = inputs;
+
+const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [hidePassword, setHidePassword] = useState(true);
@@ -36,21 +39,22 @@ export const LoginScreen = () => {
 
             <View style={styles.fieldsContainer}>
               <TextInput
-                style={[styles.input, focusedInput === 'email' && styles.focusedInput]}
+                style={[styles.input, focusedInput === EMAIL && styles.focusedInput]}
                 placeholder="Адреса електронної пошти"
                 value={email}
+                keyboardType="email-address"
                 onChangeText={setEmail}
-                onFocus={() => setFocusedInput('email')}
+                onFocus={() => setFocusedInput(EMAIL)}
                 onBlur={() => setFocusedInput(null)}
               />
               <View style={{ ...styles.fieldsContainer, position: 'relative' }}>
                 <TextInput
                   secureTextEntry={hidePassword}
-                  style={[styles.input, focusedInput === 'password' && styles.focusedInput]}
+                  style={[styles.input, focusedInput === PASSWORD && styles.focusedInput]}
                   placeholder="Пароль"
                   value={password}
                   onChangeText={setPassword}
-                  onFocus={() => setFocusedInput('password')}
+                  onFocus={() => setFocusedInput(PASSWORD)}
                   onBlur={() => setFocusedInput(null)}
                 />
                 <TouchableOpacity
@@ -80,3 +84,5 @@ export const LoginScreen = () => {
     </TouchableWithoutFeedback>
   );
 };
+
+export default LoginScreen;

@@ -17,8 +17,11 @@ import {
 
 import backgroundImage from '../assets/img/bg.jpg';
 import styles from './commonStyles';
+import inputs from './constants';
 
-export const RegistrationScreen = () => {
+const { LOGIN, EMAIL, PASSWORD } = inputs;
+
+const RegistrationScreen = () => {
   const [avatarWidth, setavatarWidth] = useState(0);
   const [login, setLogin] = useState('');
   const [email, setEmail] = useState('');
@@ -55,29 +58,30 @@ export const RegistrationScreen = () => {
 
             <View style={styles.fieldsContainer}>
               <TextInput
-                style={[styles.input, focusedInput === 'login' && styles.focusedInput]}
+                style={[styles.input, focusedInput === LOGIN && styles.focusedInput]}
                 placeholder="Логін"
                 value={login}
                 onChangeText={setLogin}
-                onFocus={() => setFocusedInput('login')}
+                onFocus={() => setFocusedInput(LOGIN)}
                 onBlur={() => setFocusedInput(null)}
               />
               <TextInput
-                style={[styles.input, focusedInput === 'email' && styles.focusedInput]}
+                style={[styles.input, focusedInput === EMAIL && styles.focusedInput]}
                 placeholder="Адреса електронної пошти"
                 value={email}
+                keyboardType="email-address"
                 onChangeText={setEmail}
-                onFocus={() => setFocusedInput('email')}
+                onFocus={() => setFocusedInput(EMAIL)}
                 onBlur={() => setFocusedInput(null)}
               />
               <View style={{ ...styles.fieldsContainer, position: 'relative' }}>
                 <TextInput
                   secureTextEntry={hidePassword}
-                  style={[styles.input, focusedInput === 'password' && styles.focusedInput]}
+                  style={[styles.input, focusedInput === PASSWORD && styles.focusedInput]}
                   placeholder="Пароль"
                   value={password}
                   onChangeText={setPassword}
-                  onFocus={() => setFocusedInput('password')}
+                  onFocus={() => setFocusedInput(PASSWORD)}
                   onBlur={() => setFocusedInput(null)}
                 />
                 <TouchableOpacity
@@ -108,3 +112,5 @@ export const RegistrationScreen = () => {
     </TouchableWithoutFeedback>
   );
 };
+
+export default RegistrationScreen;
