@@ -5,37 +5,32 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity,
-  TextInput,
-  Pressable,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
+  Pressable,
   Platform,
-  Alert,
 } from 'react-native';
+
+import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
 
 import backgroundImage from '../assets/img/bg.jpg';
 import styles from './commonStyles';
-import inputs from './constants';
 
-const { LOGIN, EMAIL, PASSWORD } = inputs;
+import { useNavigation } from '@react-navigation/native';
 
 const RegistrationScreen = () => {
-  const [avatarWidth, setavatarWidth] = useState(0);
-  const [login, setLogin] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [hidePassword, setHidePassword] = useState(true);
-  const [focusedInput, setFocusedInput] = useState(null);
+  const navigation = useNavigation();
 
+  const [avatarWidth, setavatarWidth] = useState(0);
   const onLAvatarLayout = evt => {
     const { width } = evt.nativeEvent.layout;
     setavatarWidth(width);
   };
 
-  const onRegister = () => {
-    Alert.alert('Registration credentials', `${login}  ${email}  ${password}`);
+  const handleSubmit = values => {
+    console.log(values);
+    navigation.navigate('Home');
   };
 
   return (
@@ -55,54 +50,10 @@ const RegistrationScreen = () => {
               <Image style={styles.avatar} />
             </View>
             <Text style={{ ...styles.title, marginTop: 92 }}>реєстрація</Text>
-
-            <View style={styles.fieldsContainer}>
-              <TextInput
-                style={[styles.input, focusedInput === LOGIN && styles.focusedInput]}
-                placeholder="Логін"
-                value={login}
-                onChangeText={setLogin}
-                onFocus={() => setFocusedInput(LOGIN)}
-                onBlur={() => setFocusedInput(null)}
-              />
-              <TextInput
-                style={[styles.input, focusedInput === EMAIL && styles.focusedInput]}
-                placeholder="Адреса електронної пошти"
-                value={email}
-                keyboardType="email-address"
-                onChangeText={setEmail}
-                onFocus={() => setFocusedInput(EMAIL)}
-                onBlur={() => setFocusedInput(null)}
-              />
-              <View style={{ ...styles.fieldsContainer, position: 'relative' }}>
-                <TextInput
-                  secureTextEntry={hidePassword}
-                  style={[styles.input, focusedInput === PASSWORD && styles.focusedInput]}
-                  placeholder="Пароль"
-                  value={password}
-                  onChangeText={setPassword}
-                  onFocus={() => setFocusedInput(PASSWORD)}
-                  onBlur={() => setFocusedInput(null)}
-                />
-                <TouchableOpacity
-                  style={styles.passwordShow}
-                  onPress={() => {
-                    setHidePassword(state => !state);
-                  }}
-                >
-                  <Text style={styles.passwordShowText}>
-                    {hidePassword ? 'показати' : 'сховати'}
-                  </Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-
-            <TouchableOpacity style={styles.btn} onPress={onRegister}>
-              <Text style={styles.btnLabel}>зареєструватися</Text>
-            </TouchableOpacity>
+            <RegistrationForm submitHandler={handleSubmit} />
             <View style={styles.accountPrompt}>
               <Text style={styles.accountPromptText}>Вже є акаунт?</Text>
-              <Pressable>
+              <Pressable onPress={() => navigation.navigate('Login')}>
                 <Text style={styles.linkText}>увійти</Text>
               </Pressable>
             </View>

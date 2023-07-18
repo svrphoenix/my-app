@@ -4,4 +4,6 @@ const inputs = Object.freeze({
   PASSWORD: 'password',
 });
 
-export default inputs;
+const FONT_NAME = 'Roboto';
+
+export { inputs, FONT_NAME };
