@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ProfileScreen from './ProfileScreen';
 import PostsScreen from './PostsScreen';
 import CreatePostsScreen from './CreatePostsScreen/CreatePostsScreen';
-import {  TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -36,13 +36,6 @@ const Home = () => {
       paddingBottom: 22,
       paddingHorizontal: 82,
       borderTopWidth: 1,
-      // borderColor: '#E5E5E5',
-    },
-    // tabBarActiveBackgroundColor: 'rgba(255, 108, 0,1)',
-    // tabBarActiveTintColor: 'rgba(255, 255, 255,1)',
-    // tabBarInactiveTintColor: 'rgba(33, 33, 33,1)',
-    tabBarItemStyle: {
-      // borderRadius: 20,
     },
   };
 

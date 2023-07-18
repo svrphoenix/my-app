@@ -4,7 +4,7 @@ import { Text } from 'react-native';
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
-  return <Text>dvgfbmgklb klhnhnj</Text>;
+  return <Text>Profile test string</Text>;
 };
 
 ProfileScreen.propTypes = {};

@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
 
 const PostsScreen = () => {
   const navigation = useNavigation();
+  // navigation.push('Home');
   return (
     <View style={styles.container}>
       <Text>Posts Test String</Text>

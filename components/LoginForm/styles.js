@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from 'react-native';
+import { FONT_NAME } from '../../constants/constants';
 
 const styles = StyleSheet.create({
 
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   input: {
     height: 50,
     paddingHorizontal: 16,
-    fontFamily: 'Roboto',
+    fontFamily: FONT_NAME,
     fontSize: 16,
     color: 'rgba(189, 189, 189, 1)',
     backgroundColor: 'rgba(246, 246, 246, 1)',
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
 
   passwordShowText: {
     textTransform: 'capitalize',
-    fontFamily: 'Roboto',
+    fontFamily: FONT_NAME,
     fontSize: 16,
     color: 'rgba(27, 67, 113, 1)',
   },
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
   btnLabel: {
     textAlign: 'center',
     textTransform: 'capitalize',
-    fontFamily: 'Roboto',
+    fontFamily: FONT_NAME,
     fontSize: 16,
     lineHeight: 19,
     color: 'rgba(255, 255, 255, 1)',
