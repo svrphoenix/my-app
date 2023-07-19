@@ -1,23 +1,12 @@
-import { useNavigation } from '@react-navigation/native';
-import PropTypes from 'prop-types';
-import { Text, View } from 'react-native';
-import { StyleSheet } from 'react-native';
+import { Text } from 'react-native';
 
-const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-    backgroundColor: 'rgba(255, 255, 255,1)',
-  },
-});
+import { createStackNavigator } from '@react-navigation/stack';
+import { MainPostsScreen, CommentsScreen, MapScreen } from './NestedPostsScreens';
 
-const PostsScreen = () => {
-  const navigation = useNavigation();
-  // navigation.push('Home');
-  return (
-    <View style={styles.container}>
-      <Text>Posts Test String</Text>
-    </View>
-  );
+const Nested = createStackNavigator();
+
+const PostsScreen = ({ navigation }) => {
+  return <Text>Posts</Text>;
 };
 
 PostsScreen.propTypes = {};

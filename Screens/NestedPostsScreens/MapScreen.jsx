@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { Text } from 'react-native';
 
-const MapScreen = () => {
-  return <Text>Map vgtrkjbntybntyb</Text>;
+const MapScreen = ({ route, navigation }) => {
+  return <Text>Map screen</Text>;
 };
 
 MapScreen.propTypes = {};

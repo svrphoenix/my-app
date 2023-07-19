@@ -10,7 +10,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
   },
+
   photoContainer: {
+    position: 'relative',
     height: 240,
     justifyContent: 'center',
     alignItems: 'center',
@@ -20,34 +22,48 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(246, 246, 246,1)',
   },
   cameraIcon: {
+    position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
     width: 60,
     height: 60,
     borderRadius: 60,
-    backgroundColor: 'rgba(255, 255, 255,1)',
+    backgroundColor: 'rgba(255, 255, 255,0.5)',
+  },
+
+  imagePreview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    height: '100%',
+    width: '100%',
   },
 
   loadPhotoLabel: {
     marginTop: 8,
     fontFamily: FONT_NAME,
     fontSize: 16,
-    color: '#BDBDBD',
+    color: 'rgba(189, 189, 189,1)',
   },
 
   inputContainer: {
-    marginTop: 32,
     gap: 16,
   },
 
   input: {
     borderBottomWidth: 1,
-    paddingTop: 16,
-    paddingBottom: 15,
+    paddingVertical: 16,
     fontFamily: FONT_NAME,
     fontSize: 16,
     borderBottomColor: 'rgba(232, 232, 232,1)',
     color: 'rgba(33, 33, 33,1)',
+  },
+
+  geoIcon: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    paddingVertical: 16,
   },
 
   postBtn: {
@@ -64,11 +80,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 19,
     color: 'rgba(255, 255, 255,1)',
-  },
-
-  previewImage: {
-    height: 240,
-    borderRadius: 8,
   },
 
   deleteBtn: {

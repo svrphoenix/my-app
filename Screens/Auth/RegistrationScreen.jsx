@@ -12,9 +12,9 @@ import {
   Platform,
 } from 'react-native';
 
-import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 
-import backgroundImage from '../assets/img/bg.jpg';
+import backgroundImage from '../../assets/img/bg.jpg';
 import styles from './commonStyles';
 
 import { useNavigation } from '@react-navigation/native';
@@ -28,8 +28,9 @@ const RegistrationScreen = () => {
     setavatarWidth(width);
   };
 
-  const handleSubmit = values => {
+  const handleSubmit = (values, actions) => {
     console.log(values);
+    actions.resetForm();
     navigation.navigate('Home');
   };
 

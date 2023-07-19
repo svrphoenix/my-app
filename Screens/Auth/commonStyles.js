@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet } from 'react-native';
-import { FONT_NAME } from '../constants/constants';
+import { FONT_NAME } from '../../constants/constants';
 
 const styles = StyleSheet.create({
   container: {

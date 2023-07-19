@@ -40,11 +40,12 @@ const Home = () => {
   };
 
   return (
-    <Tab.Navigator initialRouteName="Posts" screenOptions={navigateOptions}>
+    <Tab.Navigator id="Home" screenOptions={navigateOptions}>
       <Tab.Screen
         name="Posts"
         component={PostsScreen}
-        options={{
+        options={({ navigation }) => ({
+          // ...postsOptions,
           title: 'Публікації',
           headerRight: () => (
             <TouchableOpacity
@@ -55,12 +56,12 @@ const Home = () => {
             </TouchableOpacity>
           ),
           tabBarIcon: () => <Feather name="grid" size={24} color="rgba(33, 33, 33, 1)" />,
-        }}
+        })}
       />
       <Tab.Screen
         name="CreatePosts"
         component={CreatePostsScreen}
-        options={{
+        options={({ navigation }) => ({
           title: 'Створити публікацію',
           headerLeft: () => (
             <TouchableOpacity style={{ marginLeft: 16 }} onPress={() => navigation.goBack()}>
@@ -73,16 +74,23 @@ const Home = () => {
             borderRadius: 20,
             backgroundColor: 'rgba(255, 108, 0,1)',
           },
-        }}
+        })}
       />
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
-        options={{
+        options={({ navigation }) => ({
           title: 'Профіль',
-          tabBarStyle: { display: 'none' },
+          headerRight: () => (
+            <TouchableOpacity
+              style={{ marginRight: 16 }}
+              onPress={() => navigation.navigate('Login')}
+            >
+              <Feather name="log-out" size={24} color="rgba(189, 189, 189, 1)" />
+            </TouchableOpacity>
+          ),
           tabBarIcon: () => <Feather name="user" size={24} color="rgba(33, 33, 33, 1)" />,
-        }}
+        })}
       />
     </Tab.Navigator>
   );

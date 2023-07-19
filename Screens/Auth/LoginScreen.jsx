@@ -10,19 +10,21 @@ import {
   Dimensions,
 } from 'react-native';
 
-import backgroundImage from '../assets/img/bg.jpg';
+import backgroundImage from '../../assets/img/bg.jpg';
 import styles from './commonStyles';
 
-import LoginForm from '../components/LoginForm/LoginForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 import { useNavigation } from '@react-navigation/native';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
 
-  const handleSubmit = values => {
+  const handleSubmit = (values, actions) => {
     console.log(values);
+    actions.resetForm();
     navigation.navigate('Home');
   };
+
   return (
     <TouchableWithoutFeedback style={styles.container} onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
